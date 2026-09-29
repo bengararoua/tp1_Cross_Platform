@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //configure l'application
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Mon Premier Projet Roua Ben Gara ',
       theme: ThemeData(
 
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Colors.blue),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -44,7 +44,18 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+  void _decrementCounter(){
+    setState((){
+    if (_counter >0){_counter--;}
+        
+      });
+}
 
+void _resetCounter(){
+  setState((){
+    _counter=0;
+  });
+}
   @override
   Widget build(BuildContext context) {
     
@@ -70,11 +81,29 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    FloatingActionButton(
+      heroTag: 'dec',
+      onPressed: _decrementCounter, // fonction à écrire
+      child: const Icon(Icons.remove),
+    ),
+    const SizedBox(width: 10),
+    // TODO : bouton Réinitialiser (heroTag 'reset', Icons.refresh)
+    FloatingActionButton(
+      heroTag: 'reset',
+      onPressed: _resetCounter, // fonction à écrire
+      child: const Icon(Icons.refresh),
+    ),
+    const SizedBox(width: 10),
+    FloatingActionButton(
+      heroTag: 'inc',
+      onPressed: _incrementCounter,
+      child: const Icon(Icons.add),
+    ),
+  ],
       ),
-    );
+       ); 
   }
 }
