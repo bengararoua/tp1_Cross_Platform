@@ -71,13 +71,20 @@ void _resetCounter(){
         
         child: Column(
          
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const CircleAvatar(radius: 50,child:Icon(Icons.person,size:50),),
+            const SizedBox(height:16),
+            const Text('Roua Ben Gara',
+          
+              style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: 8),
+            const Text('Spécialité:Etudiante en développement web'),
+            const SizedBox(height: 8),
+            const Text("bengararoua4@gmail.com"),
+            const SizedBox(height: 24),
+            Text('Compteur:$_counter')
           ],
         ),
       ),
